@@ -212,8 +212,8 @@ QPushButton:pressed {
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>image/Стрелка вниз.png</normaloff>image/Стрелка вниз.png</iconset>
+       <iconset resource="resource/resource.qrc">
+        <normaloff>:/image/back_arrow.png</normaloff>:/image/back_arrow.png</iconset>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_3">
@@ -232,8 +232,8 @@ QPushButton:pressed {
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>image/Стрелка вверх.png</normaloff>image/Стрелка вверх.png</iconset>
+       <iconset resource="resource/resource.qrc">
+        <normaloff>:/image/forward_arrow.png</normaloff>:/image/forward_arrow.png</iconset>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_7">
@@ -275,8 +275,8 @@ QPushButton:pressed {
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>image/Стрелка вправо.png</normaloff>image/Стрелка вправо.png</iconset>
+       <iconset resource="resource/resource.qrc">
+        <normaloff>:/image/right_arrow.png</normaloff>:/image/right_arrow.png</iconset>
       </property>
      </widget>
      <widget class="QPushButton" name="pushButton_4">
@@ -292,8 +292,8 @@ QPushButton:pressed {
        <string/>
       </property>
       <property name="icon">
-       <iconset>
-        <normaloff>image/Стрелка влево.png</normaloff>image/Стрелка влево.png</iconset>
+       <iconset resource="resource/resource.qrc">
+        <normaloff>:/image/left_arrow.png</normaloff>:/image/left_arrow.png</iconset>
       </property>
      </widget>
     </widget>
@@ -496,6 +496,8 @@ QPushButton:pressed {
   </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="resource/resource.qrc"/>
+ </resources>
  <connections/>
 </ui>
