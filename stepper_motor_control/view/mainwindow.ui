@@ -445,7 +445,7 @@ QPushButton:pressed {
        </property>
       </widget>
      </widget>
-     <widget class="QPushButton" name="pushButton">
+     <widget class="QPushButton" name="StartPushButton">
       <property name="geometry">
        <rect>
         <x>304</x>
