@@ -72,6 +72,42 @@ private:
         END,
     };
 
+    static constexpr auto PUSH_BUTTON_COUNT =  static_cast<unsigned int>(PushButtonNames::END);
+    static constexpr auto SPINBOX_COUNT = static_cast<unsigned int>(SpinBoxNames::END);
+    static constexpr auto RADIO_BUTTON_COUNT = static_cast<unsigned int>(RadioButtonNames::END);
+
+    array<QString, PUSH_BUTTON_COUNT> push_button_names = {{
+        "ForwardMovePushButton",
+        "BackMovePushButton",
+        "LeftMovePushButton",
+        "RightMovePushButton",
+        "StartPushButton",
+        "StopPushButton",
+    }};
+
+    array<QString, SPINBOX_COUNT> spinbox_names = {{
+        "XCoordinateSpinBox",
+        "YCoordinateSpinBox",
+        "ZCoordinateSpinBox",
+        "XDistanceSpinBox",
+        "YDistanceSpinBox",
+        "ZDistanceSpinBox",
+        "Engine1SpeedSpinBox",
+        "Engine2SpeedSpinBox",
+        "Engine3SpeedSpinBox",
+        "Engine4SpeedSpinBox",
+        "Engine1BoostSpinBox",
+        "Engine2BoostSpinBox",
+        "Engine3BoostSpinBox",
+        "Engine4BoostSpinBox",
+    }};
+
+    array<QString, RADIO_BUTTON_COUNT> radio_button_names = {{
+        "MildStopEngineRadioButton",
+        "InstantStopEngineRadioButton",
+    }};
+
+
     MainWindow _main_window;
 
     array<QPushButton, 5> _button;
