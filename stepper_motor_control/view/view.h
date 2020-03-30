@@ -21,11 +21,7 @@ class View
     };
 
 public:
-    View() {
-        QPushButton* start_button = _main_window.findChild<QPushButton*>("StartPushButton");
-        QPushButton* close_button = _main_window.findChild<QPushButton*>("ClosePushButton");
-        std::cout << close_button;
-    }
+    View();
 
     void show(){
         _main_window.show();

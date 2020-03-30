@@ -28,6 +28,7 @@ include(model/include_model.pri)
 SOURCES += \
         main.cpp \
         view/mainwindow.cpp \
+        view/view.cpp\
         model/tsp_client.cpp
 
 
