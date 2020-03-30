@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>663</width>
+    <width>754</width>
     <height>553</height>
    </rect>
   </property>
@@ -45,44 +45,44 @@ border: 2px solid black;
      </property>
      <layout class="QGridLayout" name="gridLayout">
       <item row="0" column="1">
-       <widget class="QSpinBox" name="spinBox"/>
+       <widget class="QSpinBox" name="Engine1SpeedSpinBox"/>
       </item>
       <item row="0" column="0">
-       <widget class="QLabel" name="label">
+       <widget class="QLabel" name="Engine1SpeedLabel">
         <property name="text">
          <string>Шаговый двигатель 1, шаг/сек</string>
         </property>
        </widget>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="label_3">
+       <widget class="QLabel" name="Engine3SpeedLabel">
         <property name="text">
          <string>Шаговый двигатель 3, шаг/сек</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QSpinBox" name="spinBox_2"/>
+       <widget class="QSpinBox" name="Engine2SpeedSpinBox"/>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_2">
+       <widget class="QLabel" name="Engine2SpeedLabel">
         <property name="text">
          <string>Шаговый двигатель 2, шаг/сек</string>
         </property>
        </widget>
       </item>
       <item row="3" column="0">
-       <widget class="QLabel" name="label_4">
+       <widget class="QLabel" name="Engine4SpeedLabel">
         <property name="text">
          <string>Шаговый двигатель 4, шаг/сек</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QSpinBox" name="spinBox_3"/>
+       <widget class="QSpinBox" name="Engine3SpeedSpinBox"/>
       </item>
       <item row="3" column="1">
-       <widget class="QSpinBox" name="spinBox_4"/>
+       <widget class="QSpinBox" name="Engine4SpeedSpinBox"/>
       </item>
      </layout>
     </widget>
@@ -115,44 +115,44 @@ border: 2px solid black;
      </property>
      <layout class="QGridLayout" name="gridLayout_2">
       <item row="0" column="1">
-       <widget class="QSpinBox" name="spinBox_5"/>
+       <widget class="QSpinBox" name="Engine1BoostSpinBox"/>
       </item>
       <item row="0" column="0">
-       <widget class="QLabel" name="label_5">
+       <widget class="QLabel" name="Engine1BoostLabel">
         <property name="text">
          <string>Шаговый двигатель 1, у.е</string>
         </property>
        </widget>
       </item>
       <item row="2" column="0">
-       <widget class="QLabel" name="label_6">
+       <widget class="QLabel" name="Engine3BoostLabel">
         <property name="text">
          <string>Шаговый двигатель 3, у.е</string>
         </property>
        </widget>
       </item>
       <item row="1" column="1">
-       <widget class="QSpinBox" name="spinBox_6"/>
+       <widget class="QSpinBox" name="Engine2BoostSpinBox"/>
       </item>
       <item row="1" column="0">
-       <widget class="QLabel" name="label_7">
+       <widget class="QLabel" name="Engine2BoostLabel">
         <property name="text">
          <string>Шаговый двигатель 2, у.е</string>
         </property>
        </widget>
       </item>
       <item row="3" column="0">
-       <widget class="QLabel" name="label_8">
+       <widget class="QLabel" name="Engine4BoostLabel">
         <property name="text">
          <string>Шаговый двигатель 4, у.е</string>
         </property>
        </widget>
       </item>
       <item row="2" column="1">
-       <widget class="QSpinBox" name="spinBox_7"/>
+       <widget class="QSpinBox" name="Engine3BoostSpinBox"/>
       </item>
       <item row="3" column="1">
-       <widget class="QSpinBox" name="spinBox_8"/>
+       <widget class="QSpinBox" name="Engine4BoostSpinBox"/>
       </item>
      </layout>
     </widget>
@@ -199,7 +199,7 @@ QPushButton:pressed {
      <property name="title">
       <string/>
      </property>
-     <widget class="QPushButton" name="pushButton_5">
+     <widget class="QPushButton" name="BackMovePushButton">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -216,7 +216,7 @@ QPushButton:pressed {
         <normaloff>:/image/back_arrow.png</normaloff>:/image/back_arrow.png</iconset>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_3">
+     <widget class="QPushButton" name="ForwardMovePushButton">
       <property name="geometry">
        <rect>
         <x>130</x>
@@ -236,7 +236,7 @@ QPushButton:pressed {
         <normaloff>:/image/forward_arrow.png</normaloff>:/image/forward_arrow.png</iconset>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_7">
+     <widget class="QPushButton" name="UpMovePushButton">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -249,7 +249,7 @@ QPushButton:pressed {
        <string>Вверх</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_8">
+     <widget class="QPushButton" name="DownMovePushButton">
       <property name="geometry">
        <rect>
         <x>10</x>
@@ -262,7 +262,7 @@ QPushButton:pressed {
        <string>Вниз</string>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_6">
+     <widget class="QPushButton" name="RightMovePushButton">
       <property name="geometry">
        <rect>
         <x>190</x>
@@ -279,7 +279,7 @@ QPushButton:pressed {
         <normaloff>:/image/right_arrow.png</normaloff>:/image/right_arrow.png</iconset>
       </property>
      </widget>
-     <widget class="QPushButton" name="pushButton_4">
+     <widget class="QPushButton" name="LeftMovePushButton">
       <property name="geometry">
        <rect>
         <x>70</x>
@@ -320,34 +320,34 @@ QPushButton:pressed {
       </property>
       <layout class="QGridLayout" name="gridLayout_3">
        <item row="0" column="1">
-        <widget class="QSpinBox" name="spinBox_9"/>
+        <widget class="QSpinBox" name="XCoordinateSpinBox"/>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_10">
+        <widget class="QLabel" name="ZCoordinateLabel">
          <property name="text">
           <string>Z</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label_11">
+        <widget class="QLabel" name="YCoordinateLabel">
          <property name="text">
           <string>Y</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QSpinBox" name="spinBox_10"/>
+        <widget class="QSpinBox" name="YCoordinateSpinBox"/>
        </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label_9">
+        <widget class="QLabel" name="XCoordinateLabel">
          <property name="text">
           <string>X</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QSpinBox" name="spinBox_11"/>
+        <widget class="QSpinBox" name="ZCoordinateSpinBox"/>
        </item>
       </layout>
      </widget>
@@ -362,38 +362,38 @@ QPushButton:pressed {
       </property>
       <layout class="QGridLayout" name="gridLayout_4">
        <item row="0" column="1">
-        <widget class="QSpinBox" name="spinBox_12"/>
+        <widget class="QSpinBox" name="XDistanceSpinBox"/>
        </item>
        <item row="2" column="0">
-        <widget class="QLabel" name="label_12">
+        <widget class="QLabel" name="ZDistanceLabel">
          <property name="text">
           <string>Δ Z, мм</string>
          </property>
         </widget>
        </item>
        <item row="1" column="0">
-        <widget class="QLabel" name="label_13">
+        <widget class="QLabel" name="YDistanceLabel">
          <property name="text">
           <string>Δ Y, мм</string>
          </property>
         </widget>
        </item>
        <item row="1" column="1">
-        <widget class="QSpinBox" name="spinBox_13"/>
+        <widget class="QSpinBox" name="YDistanceSpinBox"/>
        </item>
        <item row="0" column="0">
-        <widget class="QLabel" name="label_14">
+        <widget class="QLabel" name="XDistanceLabel">
          <property name="text">
           <string>Δ X, мм</string>
          </property>
         </widget>
        </item>
        <item row="2" column="1">
-        <widget class="QSpinBox" name="spinBox_14"/>
+        <widget class="QSpinBox" name="ZDistanceSpinBox"/>
        </item>
       </layout>
      </widget>
-     <widget class="QPushButton" name="pushButton_2">
+     <widget class="QPushButton" name="StopPushButton">
       <property name="geometry">
        <rect>
         <x>390</x>
@@ -418,7 +418,7 @@ QPushButton:pressed {
       <property name="title">
        <string>Режим остновки двигателя</string>
       </property>
-      <widget class="QRadioButton" name="radioButton">
+      <widget class="QRadioButton" name="MildStopEngineRadioButton">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -431,7 +431,7 @@ QPushButton:pressed {
         <string>Мягкая</string>
        </property>
       </widget>
-      <widget class="QRadioButton" name="radioButton_2">
+      <widget class="QRadioButton" name="InstantStopEngineRadioButton">
        <property name="geometry">
         <rect>
          <x>10</x>
@@ -466,7 +466,7 @@ QPushButton:pressed {
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>663</width>
+     <width>754</width>
      <height>21</height>
     </rect>
    </property>
