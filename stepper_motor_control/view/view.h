@@ -38,11 +38,46 @@ public:
 
 private:
 
-    std::array<QPushButton, 5> _button;
-    std::array<QCheckBox, 5> _checkbox;
-    std::array<QLineEdit, 5> _lineedit;
-    std::array<QRadioButton, 5> _radio_button;
+    enum class PushButtonNames{
+        ForwardMovePushButton = 0,
+        BackMovePushButton,
+        LeftMovePushButton,
+        RightMovePushButton,
+        StartPushButton,
+        StopPushButton,
+        END,
+    };
+
+    enum class SpinBoxNames{
+        XCoordinateSpinBox = 0,
+        YCoordinateSpinBox,
+        ZCoordinateSpinBox,
+        XDistanceSpinBox,
+        YDistanceSpinBox,
+        ZDistanceSpinBox,
+        Engine1SpeedSpinBox,
+        Engine2SpeedSpinBox,
+        Engine3SpeedSpinBox,
+        Engine4SpeedSpinBox,
+        Engine1BoostSpinBox,
+        Engine2BoostSpinBox,
+        Engine3BoostSpinBox,
+        Engine4BoostSpinBox,
+        END,
+    };
+
+    enum class RadioButtonNames{
+        MildStopEngineRadioButton = 0,
+        InstantStopEngineRadioButton,
+        END,
+    };
+
     MainWindow _main_window;
+
+    array<QPushButton, 5> _button;
+    array<QCheckBox, 5> _checkbox;
+    array<QLineEdit, 5> _lineedit;
+    array<QRadioButton, 5> _radio_button;
 };
 
 
