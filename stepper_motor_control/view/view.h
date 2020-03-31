@@ -3,7 +3,7 @@
 #include <QString>
 #include <array>
 #include <QPushButton>
-#include <QCheckBox>
+#include <QSpinBox>
 #include <QLineEdit>
 #include <QRadioButton>
 #include "view/mainwindow.h"
@@ -16,24 +16,7 @@ using namespace std;
 
 class View
 {
-    struct ButtonNames{
-        string Start = "start";
-    };
-
 public:
-    View();
-
-    void show(){
-        _main_window.show();
-    }
-
-    QPushButton& get_button(string& name);
-    QCheckBox& get_checkbox(string& name);
-    QLineEdit& get_lineedit(string& name);
-    QRadioButton& get_radio_button(string& name);
-
-private:
-
     enum class PushButtonNames{
         ForwardMovePushButton = 0,
         BackMovePushButton,
@@ -67,6 +50,20 @@ private:
         InstantStopEngineRadioButton,
         END,
     };
+
+    View();
+
+    void show(){
+        _main_window.show();
+    }
+
+    QPushButton& get_push_button(PushButtonNames name);
+    QSpinBox& get_spinbox(SpinBoxNames name);
+    QRadioButton& get_radio_button(string& name);
+
+private:
+
+
 
     static constexpr auto PUSH_BUTTON_COUNT =  static_cast<unsigned int>(PushButtonNames::END);
     static constexpr auto SPINBOX_COUNT = static_cast<unsigned int>(SpinBoxNames::END);
@@ -106,10 +103,9 @@ private:
 
     MainWindow _main_window;
 
-    array<QPushButton, 5> _button;
-    array<QCheckBox, 5> _checkbox;
-    array<QLineEdit, 5> _lineedit;
-    array<QRadioButton, 5> _radio_button;
+    vector<QPushButton*> _push_button;
+    vector<QSpinBox*> _spinbox;
+    vector<QRadioButton*> _radio_button;
 };
 
 
