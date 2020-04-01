@@ -3,10 +3,6 @@
 using namespace view;
 
 View::View() {
-    QPushButton* start_button = _main_window.findChild<QPushButton*>("StartPushButton");
-    QPushButton* close_button = _main_window.findChild<QPushButton*>("ClosePushButton");
-    std::cout << close_button;
-
     for(const auto& name : push_button_names){
         QPushButton* ui_element_ptr = _main_window.findChild<QPushButton*>(name);
         _push_button.push_back(ui_element_ptr);
@@ -33,5 +29,11 @@ QSpinBox& View::get_spinbox(SpinBoxNames name){
     auto index = static_cast<uint32_t>(name);
     QSpinBox* spinbox = _spinbox[index];
     return *spinbox;
+}
+
+QRadioButton& View::get_radio_button(RadioButtonNames name){
+    auto index = static_cast<uint32_t>(name);
+    QRadioButton* radio_button = _radio_button[index];
+    return *radio_button;
 }
 

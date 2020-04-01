@@ -59,7 +59,7 @@ public:
 
     QPushButton& get_push_button(PushButtonNames name);
     QSpinBox& get_spinbox(SpinBoxNames name);
-    QRadioButton& get_radio_button(string& name);
+    QRadioButton& get_radio_button(RadioButtonNames name);
 
 private:
 
