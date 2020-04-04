@@ -25,17 +25,21 @@ QMAKE_CXXFLAGS += -std=c++17
 
 include(view/include_view.pri)
 include(model/include_model.pri)
+include(controller/include_controller.pri)
+
 SOURCES += \
         main.cpp \
         view/mainwindow.cpp \
         view/view.cpp\
-        model/tsp_client.cpp
+        model/tsp_client.cpp\
+        controller/controller.cpp
 
 
 HEADERS += \
         view/mainwindow.h \
         view/view.h\
-        model/tsp_client.h
+        model/tsp_client.h\
+        controller/controller.h
 
 FORMS += \
         view/mainwindow.ui

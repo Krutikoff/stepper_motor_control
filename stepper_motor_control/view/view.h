@@ -57,9 +57,12 @@ public:
         _main_window.show();
     }
 
-    QPushButton& get_push_button(PushButtonNames name);
+    QPushButton* get_push_button(PushButtonNames name);
     QSpinBox& get_spinbox(SpinBoxNames name);
     QRadioButton& get_radio_button(RadioButtonNames name);
+
+signals:
+    void valueChanged(int newValue);
 
 private:
 

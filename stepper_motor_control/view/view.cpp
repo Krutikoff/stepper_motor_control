@@ -19,10 +19,10 @@ View::View() {
     }
 }
 
-QPushButton& View::get_push_button(PushButtonNames name){
+QPushButton* View::get_push_button(PushButtonNames name){
     auto index = static_cast<uint32_t>(name);
     QPushButton* button = _push_button[index];
-    return *button;
+    return button;
 }
 
 QSpinBox& View::get_spinbox(SpinBoxNames name){
