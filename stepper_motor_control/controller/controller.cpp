@@ -180,6 +180,8 @@ void Controller::stop_pb_handler(){
 
 void Controller::engine1_speed_sp_handler(int value){
     auto v = value;
+    uint8_t engine_number = 1;
+    _model.set_engine_speed(engine_number, value);
     qDebug() << "engine1 speed value: " << v;
 
 }

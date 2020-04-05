@@ -1,10 +1,12 @@
 #pragma once
 #include <view/view.h>
+#include <model/model.h>
 #include <QObject>
 
 namespace controller {
 
 using namespace view;
+using namespace model;
 
 class Controller : public QObject
 {
@@ -48,6 +50,7 @@ public slots:
 
 private:
     View _view;
+    Model _model;
 
     void _bind_signal_to_slot();
 };

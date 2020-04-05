@@ -32,6 +32,7 @@ SOURCES += \
         view/mainwindow.cpp \
         view/view.cpp\
         model/tsp_client.cpp\
+        model/model.cpp\
         controller/controller.cpp
 
 
@@ -39,6 +40,7 @@ HEADERS += \
         view/mainwindow.h \
         view/view.h\
         model/tsp_client.h\
+        model/model.h\
         controller/controller.h
 
 FORMS += \
