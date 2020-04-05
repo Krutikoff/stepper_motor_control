@@ -22,6 +22,8 @@ public:
         BackMovePushButton,
         LeftMovePushButton,
         RightMovePushButton,
+        UpMovePushButton,
+        DownMovePushButton,
         StartPushButton,
         StopPushButton,
         END,
@@ -58,8 +60,8 @@ public:
     }
 
     QPushButton* get_push_button(PushButtonNames name);
-    QSpinBox& get_spinbox(SpinBoxNames name);
-    QRadioButton& get_radio_button(RadioButtonNames name);
+    QSpinBox* get_spinbox(SpinBoxNames name);
+    QRadioButton* get_radio_button(RadioButtonNames name);
 
 signals:
     void valueChanged(int newValue);
@@ -77,6 +79,8 @@ private:
         "BackMovePushButton",
         "LeftMovePushButton",
         "RightMovePushButton",
+        "UpMovePushButton",
+        "DownMovePushButton",
         "StartPushButton",
         "StopPushButton",
     }};
