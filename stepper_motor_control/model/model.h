@@ -28,15 +28,15 @@ public:
     };
 
     struct Coordinate{
-        uint32_t x = 0;
-        uint32_t y = 0;
-        uint32_t z = 0;
+        int32_t x = 0;
+        int32_t y = 0;
+        int32_t z = 0;
     };
 
     struct Distance{
-        uint32_t x = 0;
-        uint32_t y = 0;
-        uint32_t z = 0;
+        int32_t x = 0;
+        int32_t y = 0;
+        int32_t z = 0;
     };
 
     enum class StopMode : uint8_t {
