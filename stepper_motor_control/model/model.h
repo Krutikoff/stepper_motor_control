@@ -1,8 +1,11 @@
 #pragma once
 #include <stdint.h>
+#include <model/tsp_client.h>
 
 
 namespace model {
+
+using namespace tcp;
 
 
 class Model
@@ -36,6 +39,11 @@ public:
         uint32_t z = 0;
     };
 
+    enum class StopMode : uint8_t {
+        MILD = 0,
+        INSTANTE,
+    };
+
     Model() {}
 
     void set_engine_speed(uint8_t engine_number, uint16_t value);
@@ -46,14 +54,20 @@ public:
     void set_z_coortdinate(uint32_t value);
 
     void set_x_distance(uint32_t value);
-    void set_x_distance(uint32_t value);
+    void set_y_distance(uint32_t value);
     void set_z_distance(uint32_t value);
+
+    void set_stop_mode(StopMode mode);
+    void stop();
 
 private:
     EngineSpeeds _engine_speeds;
     EngineBoost _engine_boosts;
     Coordinate _coordinate;
     Distance _distance;
+    StopMode _stop_mode;
+    TcpClient _tcp_client;
+
 };
 
 }

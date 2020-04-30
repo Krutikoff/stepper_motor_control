@@ -22,34 +22,41 @@ void Model::set_engine_boost(uint8_t engine_number, uint16_t value){
 }
 
 void Model::set_x_coortdinate(uint32_t coordinate){
-    _coordinate.x = value;
+    _coordinate.x = coordinate;
     qDebug() << "[Model]:: coordinate x : " << _coordinate.x;
 }
 
 void Model::set_y_coortdinate(uint32_t coordinate){
-    _coordinate.y = value;
+    _coordinate.y = coordinate;
     qDebug() << "[Model]:: coordinate x : " << _coordinate.y;
 }
 
 void Model::set_z_coortdinate(uint32_t coordinate){
-    _coordinate.z = value;
+    _coordinate.z = coordinate;
     qDebug() << "[Model]:: coordinate x : " << _coordinate.z;
 }
 
 void Model::set_x_distance(uint32_t distance){
-    _distance.x = value;
+    _distance.x = distance;
     qDebug() << "[Model]:: coordinate x : " << _coordinate.x;
 }
 
 void Model::set_y_distance(uint32_t distance){
-    _distance.y = value;
+    _distance.y = distance;
     qDebug() << "[Model]:: coordinate y : " << _coordinate.y;
 }
 
 void Model::set_z_distance(uint32_t distance){
-    _distance.z = value;
+    _distance.z = distance;
     qDebug() << "[Model]:: coordinate z : " << _coordinate.z;
 }
 
+void Model::set_stop_mode(StopMode mode){
+    _stop_mode = mode;
+}
 
+void Model::stop(){
+    auto mode = static_cast<uint8_t>(_stop_mode);
+    _tcp_client.send_stop_cmd(mode);
+}
 }
