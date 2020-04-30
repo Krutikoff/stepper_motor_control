@@ -48,6 +48,10 @@ public slots:
     void y_distance_sp_handler(int value);
     void z_distance_sp_handler(int value);
 
+    // RadioButton handler
+    void instant_stop_mode();
+    void mild_stop_mode();
+
 private:
     View _view;
     Model _model;

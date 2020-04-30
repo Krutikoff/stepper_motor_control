@@ -10,10 +10,6 @@ using namespace controller;
 
 
 Controller::Controller(QObject *parent) : QObject(parent){
-
-//    QSpinBox& engine1_boost = _view.get_spinbox(View::SpinBoxNames::Engine1BoostSpinBox);
-//    engine1_boost.setValue(7);
-
     _bind_signal_to_slot();
     _view.show();
 }
@@ -143,6 +139,12 @@ void Controller::_bind_signal_to_slot(){
         this, &Controller::z_distance_sp_handler
     );
 
+
+    QRadioButton* instante_mode_rb = _view.get_radio_button(View::RadioButtonNames::InstantStopEngineRadioButton);
+    QRadioButton* mild_mode_rb = _view.get_radio_button(View::RadioButtonNames::MildStopEngineRadioButton);
+
+    connect(instante_mode_rb ,&QRadioButton::clicked, this, &Controller::instant_stop_mode);
+    connect(instante_mode_rb ,&QRadioButton::clicked, this, &Controller::mild_stop_mode);
 }
 
 
@@ -172,9 +174,11 @@ void Controller::down_move_pb_handler(){
 
 void Controller::start_pb_handler(){
     qDebug() << "start_pb_handler";
+
 }
 void Controller::stop_pb_handler(){
     qDebug() << "stop_pb_handler";
+    _model.stop();
 }
 
 
@@ -252,6 +256,18 @@ void Controller::z_distance_sp_handler(int value){
     auto v = value;
     qDebug() << "z distance value: " << v;
 }
+
+void Controller::instant_stop_mode(){
+    qDebug() << "instant_stop_mode";
+
+    _model.set_stop_mode(Model::StopMode::INSTANTE);
+}
+void Controller::mild_stop_mode(){
+    qDebug() << "mild_stop_mode";
+
+    _model.set_stop_mode(Model::StopMode::MILD);
+}
+
 
 void Controller::handleButton(){
     int a = 5;
