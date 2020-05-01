@@ -2,9 +2,11 @@
 #include <QObject>
 #include <QTcpServer>
 #include <QTcpSocket>
+#include <vector>
 
 namespace tcp {
 
+using namespace std;
 
 class TcpClient : public QObject
 {
@@ -114,6 +116,10 @@ public slots:
 private:
     QTcpServer* mTcpServer;
     QTcpSocket* mTcpSocket;
+
+    using Packet = vector<uint8_t>;
+    Packet _packet;
+    void _build_packet(Cmd cmd);
 };
 
 }

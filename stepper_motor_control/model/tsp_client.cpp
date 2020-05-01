@@ -41,6 +41,20 @@ void TcpClient::slotServerRead(){
     }
 }
 
+void TcpClient::_build_packet(Cmd cmd){
+    uint8_t *data_start;
+    uint8_t size = 0;
+
+    if(cmd == Cmd::START){
+        data_start = reinterpret_cast<uint8_t*>(&_start_cmd);
+        size = sizeof(_start_cmd);
+    }
+
+    for(uint8_t i = 0; i < size; ++i){
+        auto byte = *(data_start + i);
+        _packet.push_back(byte);
+    }
+}
 void TcpClient::send_stop_cmd(uint8_t stop_mode){
 
     struct __attribute__((packed, aligned(1))) Packet{
