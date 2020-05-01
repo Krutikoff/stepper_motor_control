@@ -149,123 +149,126 @@ void Controller::_bind_signal_to_slot(){
 
 
 void Controller::forward_move_pb_handler(){
+    _model.set_move_direction(Model::MoveDiractionNames::FORWARD);
     qDebug() << "forward_move_pb_handler";
 }
 
 void Controller::back_move_pb_handler(){
+    _model.set_move_direction(Model::MoveDiractionNames::BACK);
     qDebug() << "back_move_pb_handler";
 }
 
 void Controller::right_move_pb_handler(){
+    _model.set_move_direction(Model::MoveDiractionNames::RIGHT);
     qDebug() << "right_move_pb_handler";
 }
 
 void Controller::left_move_pb_handler(){
+    _model.set_move_direction(Model::MoveDiractionNames::LEFT);
     qDebug() << "left_move_pb_handler";
 }
 
 void Controller::up_move_pb_handler(){
+    _model.set_move_direction(Model::MoveDiractionNames::UP);
     qDebug() << "up_move_pb_handler";
 }
 
 void Controller::down_move_pb_handler(){
+    _model.set_move_direction(Model::MoveDiractionNames::DOWN);
     qDebug() << "down_move_pb_handler";
 }
 
 void Controller::start_pb_handler(){
+    _model.start();
     qDebug() << "start_pb_handler";
 
 }
 void Controller::stop_pb_handler(){
-    qDebug() << "stop_pb_handler";
     _model.stop();
+    qDebug() << "stop_pb_handler";
 }
 
 
 void Controller::engine1_speed_sp_handler(int value){
-    auto v = value;
-    uint8_t engine_number = 1;
-    _model.set_engine_speed(engine_number, value);
-    qDebug() << "engine1 speed value: " << v;
+    _model.set_engine_speed(Model::EngineNumber::_1, value);
+    qDebug() << "engine1 speed value: ";
 
 }
 
 void Controller::engine2_speed_sp_handler(int value){
-    auto v = value;
-    qDebug() << "engine2 speed value: " << v;
+    _model.set_engine_speed(Model::EngineNumber::_2, value);
+    qDebug() << "engine2 speed value: ";
 }
 
 void Controller::engine3_speed_sp_handler(int value){
-    auto v = value;
-    qDebug() << "engine3 speed value: " << v;
+    _model.set_engine_speed(Model::EngineNumber::_3, value);
+    qDebug() << "engine3 speed value: ";
 }
 
 void Controller::engine4_speed_sp_handler(int value){
-    auto v = value;
-    qDebug() << "engine4 speed value: " << v;
+    _model.set_engine_speed(Model::EngineNumber::_4, value);
+    qDebug() << "engine4 speed value: ";
 }
 
 
 void Controller::engine1_boost_sp_handler(int value){
-    auto v = value;
-    qDebug() << "engine1 boost value: " << v;
+    _model.set_engine_boost(Model::EngineNumber::_1, value);
+    qDebug() << "engine1 boost value: ";
 
 }
 
 void Controller::engine2_boost_sp_handler(int value){
-    auto v = value;
-    qDebug() << "engine2 boost value: " << v;
+    _model.set_engine_boost(Model::EngineNumber::_2, value);
+    qDebug() << "engine2 boost value: ";
 }
 
 void Controller::engine3_boost_sp_handler(int value){
-    auto v = value;
-    qDebug() << "engine3 boost value: " << v;
+    _model.set_engine_boost(Model::EngineNumber::_3, value);
+    qDebug() << "engine3 boost value: ";
 }
 
 void Controller::engine4_boost_sp_handler(int value){
-    auto v = value;
-    qDebug() << "engine4 boost value: " << v;
+    _model.set_engine_boost(Model::EngineNumber::_4, value);
+    qDebug() << "engine4 boost value: ";
 }
 
 void Controller::x_coordinate_sp_handler(int value){
-    auto v = value;
-    qDebug() << "x coordinate value: " << v;
+     _model.set_x_coortdinate(value);
+    qDebug() << "x coordinate value: ";
 }
 
 void Controller::y_coordinate_sp_handler(int value){
-    auto v = value;
-    qDebug() << "y coordinate value: " << v;
+   _model.set_y_coortdinate(value);
+    qDebug() << "y coordinate value: ";
 }
 
 void Controller::z_coordinate_sp_handler(int value){
-    auto v = value;
-    qDebug() << "z coordinate value: " << v;
+    _model.set_z_coortdinate(value);
+    qDebug() << "z coordinate value: ";
 }
 
 void Controller::x_distance_sp_handler(int value){
-    auto v = value;
-    qDebug() << "x distance value: " << v;
+    _model.set_x_distance(value);
+    qDebug() << "x distance value: ";
 }
 
 void Controller::y_distance_sp_handler(int value){
-    auto v = value;
-    qDebug() << "y distance value: " << v;
+    _model.set_y_distance(value);
+    qDebug() << "y distance value: ";
 }
 
 void Controller::z_distance_sp_handler(int value){
-    auto v = value;
-    qDebug() << "z distance value: " << v;
+    _model.set_z_distance(value);
+    qDebug() << "z distance value: ";
 }
 
 void Controller::instant_stop_mode(){
-    qDebug() << "instant_stop_mode";
-
     _model.set_stop_mode(Model::StopMode::INSTANTE);
+    qDebug() << "instant_stop_mode";
 }
 void Controller::mild_stop_mode(){
-    qDebug() << "mild_stop_mode";
-
     _model.set_stop_mode(Model::StopMode::MILD);
+    qDebug() << "mild_stop_mode";
 }
 
 

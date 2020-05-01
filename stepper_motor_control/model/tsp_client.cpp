@@ -1,20 +1,25 @@
 #include <model/tsp_client.h>
 #include <QDebug>
 #include <QCoreApplication>
-#include <vector>
 #include <QByteArray>
 
 namespace tcp{
 
-using namespace std;
-
-
-TcpClient::TcpClient(QObject *parent) : QObject(parent){
+TcpClient::TcpClient(StartCmd& start_cmd,
+                     StopCmd& stop_cmd,
+                     MoveCmd& move_cmd,
+                     GoToCmd& go_to_cmd,
+                     StatusCmd& status_cmd,
+                     SetPositionCmd& set_position_cmd,
+                     QObject *parent)
+    : QObject(parent), _start_cmd(start_cmd),
+      _stop_cmd(stop_cmd), _move_cmd(move_cmd),
+      _go_to_cmd(go_to_cmd), _status_cmd(status_cmd),
+      _set_position_cmd(set_position_cmd)
+{
     mTcpServer = new QTcpServer(this);
 
     connect(mTcpServer, &QTcpServer::newConnection, this, &TcpClient::slotNewConnection);
-
-
 
     if(!mTcpServer->listen(QHostAddress::Any, 6000)){
         qDebug() << "server is not started";
@@ -41,6 +46,7 @@ void TcpClient::slotServerRead(){
     }
 }
 
+
 void TcpClient::_build_packet(Cmd cmd){
     uint8_t *data_start;
     uint8_t size = 0;
@@ -55,6 +61,17 @@ void TcpClient::_build_packet(Cmd cmd){
         _packet.push_back(byte);
     }
 }
+
+void TcpClient::send_cmd(Cmd cmd){
+    auto _cmd = cmd;
+//    auto& packet = _build_packet(cmd);
+
+//    for(uint8_t& byte : packet){
+//        auto res = mTcpSocket->write((char*)byte, sizeof(byte));
+//        qDebug() << res;
+//    }
+}
+
 void TcpClient::send_stop_cmd(uint8_t stop_mode){
 
     struct __attribute__((packed, aligned(1))) Packet{
@@ -86,9 +103,6 @@ void TcpClient::send_stop_cmd(uint8_t stop_mode){
 
     auto res = mTcpSocket->write((char *)cmd_buffer, size_data);
     qDebug() << res;
-
-
-
 }
 
 void TcpClient::slotClientDisconnected(){
