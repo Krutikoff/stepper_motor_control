@@ -26,6 +26,8 @@ public:
         DownMovePushButton,
         StartPushButton,
         StopPushButton,
+        GoToPushButton,
+        MovePushButton,
         END,
     };
 
@@ -48,8 +50,14 @@ public:
     };
 
     enum class RadioButtonNames{
-        MildStopEngineRadioButton = 0,
-        InstantStopEngineRadioButton,
+        MildStopEngine1RadioButton = 0,
+        MildStopEngine2RadioButton,
+        MildStopEngine3RadioButton,
+        MildStopEngine4RadioButton,
+        InstantStopEngine1RadioButton,
+        InstantStopEngine2RadioButton,
+        InstantStopEngine3RadioButton,
+        InstantStopEngine4RadioButton,
         END,
     };
 
@@ -83,6 +91,8 @@ private:
         "DownMovePushButton",
         "StartPushButton",
         "StopPushButton",
+        "GoToPushButton",
+        "MovePushButton",
     }};
 
     array<QString, SPINBOX_COUNT> spinbox_names = {{
@@ -103,8 +113,14 @@ private:
     }};
 
     array<QString, RADIO_BUTTON_COUNT> radio_button_names = {{
-        "MildStopEngineRadioButton",
-        "InstantStopEngineRadioButton",
+        "MildStopEngine1RadioButton",
+        "MildStopEngine2RadioButton",
+        "MildStopEngine3RadioButton",
+        "MildStopEngine4RadioButton",
+        "InstantStopEngine1RadioButton",
+        "InstantStopEngine2RadioButton",
+        "InstantStopEngine3RadioButton",
+        "InstantStopEngine4RadioButton",
     }};
 
 

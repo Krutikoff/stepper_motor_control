@@ -15,36 +15,36 @@ public:
 
 
     enum class Cmd{
-        START,
-        STOP,
-        MOVE,
-        GOTO,
-        STATUS,
-        SET_POS,
-        EMERGENCY,
+        INIT = 1,
+        START = 2,
+        STOP = 3,
+        MOVE = 4,
+        GOTO = 5,
+        STATUS = 6,
+        SET_POS = 7,
     };
 
 
     struct StartCmd{
-        const uint8_t number = 0;
-        uint8_t activate_engine_mask = 0 ;
-        uint8_t empty_byte = 0;
-        uint8_t forward_move = 0;
-        uint8_t back_move = 0;
-        uint8_t right_move = 0;
-        uint8_t left_move = 0;
-        uint16_t engine1_speed = 0;
-        uint16_t engine2_speed = 0;
-        uint16_t engine3_speed = 0;
-        uint16_t engine4_speed = 0;
-        uint16_t engine1_boost = 0;
-        uint16_t engine2_boost = 0;
-        uint16_t engine3_boost = 0;
-        uint16_t engine4_boost = 0;
+        uint8_t cmd_number;
+        uint8_t activate_engine_mask;
+        uint8_t empty_byte;
+        uint8_t forward_move;
+        uint8_t back_move;
+        uint8_t right_move;
+        uint8_t left_move;
+        uint16_t engine1_speed;
+        uint16_t engine2_speed;
+        uint16_t engine3_speed;
+        uint16_t engine4_speed;
+        uint16_t engine1_boost;
+        uint16_t engine2_boost;
+        uint16_t engine3_boost;
+        uint16_t engine4_boost;
     };
 
     struct __attribute__((packed, aligned(1))) StopCmd{
-      uint16_t number;
+      uint16_t cmd_number;
       uint8_t active_engine_mask;
       uint8_t empty_byte;
       uint8_t stop_mode_1;
@@ -55,7 +55,7 @@ public:
     };
 
     struct __attribute__((packed, aligned(1))) MoveCmd{
-        uint8_t number = 4;
+        uint8_t cmd_number;
         uint8_t activate_engine_mask;
         uint8_t empty_byte;
         uint16_t engine1_speed;
@@ -69,12 +69,12 @@ public:
         uint32_t x_distance;
         uint32_t y_distance;
         uint32_t z_distance;
-        uint32_t none_distance = 0;
+        uint32_t none_distance;
 
     };
 
     struct __attribute__((packed, aligned(1))) GoToCmd{
-        uint8_t number;
+        uint8_t cmd_number;
         uint8_t activate_engine_mask;
         uint8_t empty_byte;
         uint16_t engine1_speed;
@@ -93,11 +93,11 @@ public:
     };
 
     struct __attribute__((packed, aligned(1))) StatusCmd{
-        uint8_t number;
+        const uint8_t cmd_number = 6;
     };
 
     struct __attribute__((packed, aligned(1))) SetPositionCmd{
-        uint8_t number;
+        uint8_t cmd_number;
         uint8_t activate_engine_mask;
         uint8_t empty_byte;
         uint32_t position_1;
@@ -119,8 +119,6 @@ public slots:
     void slotNewConnection();
     void slotServerRead();
     void slotClientDisconnected();
-
-    void send_stop_cmd(uint8_t stop_mode);
     void send_cmd(Cmd cmd);
 
 private:

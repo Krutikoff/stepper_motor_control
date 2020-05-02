@@ -24,8 +24,10 @@ void Controller::_bind_signal_to_slot(){
     QPushButton* left_move_pb = _view.get_push_button(View::PushButtonNames::LeftMovePushButton);
     QPushButton* up_move_pb = _view.get_push_button(View::PushButtonNames::UpMovePushButton);
     QPushButton* down_move_pb = _view.get_push_button(View::PushButtonNames::DownMovePushButton);
-    QPushButton* start_move_pb = _view.get_push_button(View::PushButtonNames::StartPushButton);
-    QPushButton* stop_move_pb = _view.get_push_button(View::PushButtonNames::StopPushButton);
+    QPushButton* start_pb = _view.get_push_button(View::PushButtonNames::StartPushButton);
+    QPushButton* stop_pb = _view.get_push_button(View::PushButtonNames::StopPushButton);
+    QPushButton* go_to_pb = _view.get_push_button(View::PushButtonNames::GoToPushButton);
+    QPushButton* move_pb = _view.get_push_button(View::PushButtonNames::MovePushButton);
 
     connect(forward_move_pb, &QPushButton::pressed, this, &Controller::forward_move_pb_handler);
     connect(back_move_pb, &QPushButton::pressed, this, &Controller::back_move_pb_handler);
@@ -33,8 +35,10 @@ void Controller::_bind_signal_to_slot(){
     connect(left_move_pb, &QPushButton::pressed, this, &Controller::left_move_pb_handler);
     connect(up_move_pb, &QPushButton::pressed, this, &Controller::up_move_pb_handler);
     connect(down_move_pb, &QPushButton::pressed, this, &Controller::down_move_pb_handler);
-    connect(start_move_pb, &QPushButton::pressed, this, &Controller::start_pb_handler);
-    connect(stop_move_pb, &QPushButton::pressed, this, &Controller::stop_pb_handler);
+    connect(start_pb, &QPushButton::pressed, this, &Controller::start_pb_handler);
+    connect(stop_pb, &QPushButton::pressed, this, &Controller::stop_pb_handler);
+    connect(go_to_pb, &QPushButton::pressed, this, &Controller::go_to_pb_handler);
+    connect(move_pb, &QPushButton::pressed, this, &Controller::move_pb_handler);
 
     // Spinbox
     QSpinBox* engine1_speed_sp = _view.get_spinbox(View::SpinBoxNames::Engine1SpeedSpinBox);
@@ -140,11 +144,23 @@ void Controller::_bind_signal_to_slot(){
     );
 
 
-    QRadioButton* instante_mode_rb = _view.get_radio_button(View::RadioButtonNames::InstantStopEngineRadioButton);
-    QRadioButton* mild_mode_rb = _view.get_radio_button(View::RadioButtonNames::MildStopEngineRadioButton);
+    QRadioButton* engine1_instante_mode_rb = _view.get_radio_button(View::RadioButtonNames::InstantStopEngine1RadioButton);
+    QRadioButton* engine2_instante_mode_rb = _view.get_radio_button(View::RadioButtonNames::InstantStopEngine2RadioButton);
+    QRadioButton* engine3_instante_mode_rb = _view.get_radio_button(View::RadioButtonNames::InstantStopEngine3RadioButton);
+    QRadioButton* engine4_instante_mode_rb = _view.get_radio_button(View::RadioButtonNames::InstantStopEngine4RadioButton);
+    QRadioButton* engine1_mild_mode_rb = _view.get_radio_button(View::RadioButtonNames::MildStopEngine1RadioButton);
+    QRadioButton* engine2_mild_mode_rb = _view.get_radio_button(View::RadioButtonNames::MildStopEngine2RadioButton);
+    QRadioButton* engine3_mild_mode_rb = _view.get_radio_button(View::RadioButtonNames::MildStopEngine3RadioButton);
+    QRadioButton* engine4_mild_mode_rb = _view.get_radio_button(View::RadioButtonNames::MildStopEngine4RadioButton);
 
-    connect(instante_mode_rb ,&QRadioButton::clicked, this, &Controller::instant_stop_mode);
-    connect(instante_mode_rb ,&QRadioButton::clicked, this, &Controller::mild_stop_mode);
+    connect(engine1_instante_mode_rb ,&QRadioButton::clicked, this, &Controller::engine1_instant_stop_mode);
+    connect(engine2_instante_mode_rb ,&QRadioButton::clicked, this, &Controller::engine2_instant_stop_mode);
+    connect(engine3_instante_mode_rb ,&QRadioButton::clicked, this, &Controller::engine3_instant_stop_mode);
+    connect(engine4_instante_mode_rb ,&QRadioButton::clicked, this, &Controller::engine4_instant_stop_mode);
+    connect(engine1_mild_mode_rb ,&QRadioButton::clicked, this, &Controller::engine1_mild_stop_mode);
+    connect(engine2_mild_mode_rb ,&QRadioButton::clicked, this, &Controller::engine2_mild_stop_mode);
+    connect(engine3_mild_mode_rb ,&QRadioButton::clicked, this, &Controller::engine3_mild_stop_mode);
+    connect(engine4_mild_mode_rb ,&QRadioButton::clicked, this, &Controller::engine4_mild_stop_mode);
 }
 
 
@@ -185,6 +201,16 @@ void Controller::start_pb_handler(){
 }
 void Controller::stop_pb_handler(){
     _model.stop();
+    qDebug() << "stop_pb_handler";
+}
+
+void Controller::go_to_pb_handler(){
+    _model.go_to();
+    qDebug() << "stop_pb_handler";
+}
+
+void Controller::move_pb_handler(){
+    _model.move();
     qDebug() << "stop_pb_handler";
 }
 
@@ -262,12 +288,42 @@ void Controller::z_distance_sp_handler(int value){
     qDebug() << "z distance value: ";
 }
 
-void Controller::instant_stop_mode(){
-    _model.set_stop_mode(Model::StopMode::INSTANTE);
+void Controller::engine1_instant_stop_mode(){
+    _model.set_stop_mode(Model::EngineNumber::_1, Model::StopMode::INSTANTE);
     qDebug() << "instant_stop_mode";
 }
-void Controller::mild_stop_mode(){
-    _model.set_stop_mode(Model::StopMode::MILD);
+
+void Controller::engine2_instant_stop_mode(){
+    _model.set_stop_mode(Model::EngineNumber::_2, Model::StopMode::INSTANTE);
+    qDebug() << "instant_stop_mode";
+}
+
+void Controller::engine3_instant_stop_mode(){
+    _model.set_stop_mode(Model::EngineNumber::_3, Model::StopMode::INSTANTE);
+    qDebug() << "instant_stop_mode";
+}
+
+void Controller::engine4_instant_stop_mode(){
+    _model.set_stop_mode(Model::EngineNumber::_4, Model::StopMode::INSTANTE);
+    qDebug() << "instant_stop_mode";
+}
+void Controller::engine1_mild_stop_mode(){
+    _model.set_stop_mode(Model::EngineNumber::_1, Model::StopMode::MILD);
+    qDebug() << "mild_stop_mode";
+}
+
+void Controller::engine2_mild_stop_mode(){
+    _model.set_stop_mode(Model::EngineNumber::_2, Model::StopMode::MILD);
+    qDebug() << "mild_stop_mode";
+}
+
+void Controller::engine3_mild_stop_mode(){
+    _model.set_stop_mode(Model::EngineNumber::_3, Model::StopMode::MILD);
+    qDebug() << "mild_stop_mode";
+}
+
+void Controller::engine4_mild_stop_mode(){
+    _model.set_stop_mode(Model::EngineNumber::_4, Model::StopMode::MILD);
     qDebug() << "mild_stop_mode";
 }
 

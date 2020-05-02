@@ -28,6 +28,8 @@ public slots:
     void down_move_pb_handler();
     void start_pb_handler();
     void stop_pb_handler();
+    void go_to_pb_handler();
+    void move_pb_handler();
 
     // Spinbox handlers
     void engine1_speed_sp_handler(int value);
@@ -49,8 +51,14 @@ public slots:
     void z_distance_sp_handler(int value);
 
     // RadioButton handler
-    void instant_stop_mode();
-    void mild_stop_mode();
+    void engine1_instant_stop_mode();
+    void engine2_instant_stop_mode();
+    void engine3_instant_stop_mode();
+    void engine4_instant_stop_mode();
+    void engine1_mild_stop_mode();
+    void engine2_mild_stop_mode();
+    void engine3_mild_stop_mode();
+    void engine4_mild_stop_mode();
 
 private:
     View _view;

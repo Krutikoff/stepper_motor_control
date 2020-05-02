@@ -1,12 +1,13 @@
 #pragma once
 #include <stdint.h>
 #include <model/tsp_client.h>
+#include <array>
 
 
 namespace model {
 
 using namespace tcp;
-
+using namespace std;
 
 class Model
 {
@@ -43,6 +44,7 @@ public:
         _2,
         _3,
         _4,
+        END,
     };
 
     struct EngineSpeeds{
@@ -77,12 +79,7 @@ public:
         INSTANTE,
     };
 
-    Model(): _tcp_client(_start_cmd,
-                         _stop_cmd,
-                         _move_cmd,
-                         _go_to_cmd,
-                         _status_cmd,
-                         _set_position_cmd){}
+    Model();
 
     void set_move_direction(MoveDiractionNames direction);
     void set_engine_speed(EngineNumber engine_number, uint16_t value);
@@ -97,8 +94,10 @@ public:
     void set_z_distance(uint32_t value);
 
     void start();
-    void set_stop_mode(StopMode mode);
+    void set_stop_mode(EngineNumber engine_number, StopMode mode);
     void stop();
+    void go_to();
+    void move();
 
 private:
     MoveDiraction _move_diraction;
@@ -106,7 +105,10 @@ private:
     EngineBoost _engine_boosts;
     Coordinate _coordinate;
     Distance _distance;
-    StopMode _stop_mode;
+
+    static constexpr uint8_t _QUANTITY_OF_ENGINE = static_cast<uint8_t>(EngineNumber::END);
+    array<StopMode, _QUANTITY_OF_ENGINE> _engines_stop_mode;
+
     TcpClient _tcp_client;
     TcpClient::StartCmd _start_cmd;
     TcpClient::StopCmd _stop_cmd;
