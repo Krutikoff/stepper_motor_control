@@ -1,1 +1,1 @@
-# stepper_motor_control
+# GUI для управления шаговыми двигателями
